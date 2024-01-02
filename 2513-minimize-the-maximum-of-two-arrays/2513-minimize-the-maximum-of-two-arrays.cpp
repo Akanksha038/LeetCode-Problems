@@ -1,12 +1,12 @@
 #define ll long long
 class Solution {
 public:
-    bool satisfy(ll divisor1 ,ll divisor2,ll c1,ll c2,ll mid){
-        ll div1=mid/divisor1;
-        ll div2=mid/divisor2;
+    bool satisfy(ll d1,ll d2,ll c1,ll c2,ll mid){
+        ll div1=mid/d1;
+        ll div2=mid/d2;
         ll notdiv1=mid-div1;
         ll notdiv2=mid-div2;
-        ll notdivboth=mid-mid/(lcm(divisor1,divisor2));
+        ll notdivboth=mid-mid/(lcm(d1,d2));
         if(notdiv1>=c1 && notdiv2>=c2&& notdivboth>=c1+c2){
             return true;
         }
