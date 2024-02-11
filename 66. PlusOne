@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        // Traverse the digits in reverse order
+        for (int i = digits.size() - 1; i >= 0; --i) {
+            // If the current digit is less than 9, we can just increment it by 1
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits; // Return the updated vector
+            }
+            // If the current digit is 9, set it to 0 and continue to the next digit
+            digits[i] = 0;
+        }
+
+        // If all digits were 9, we need to add a new digit '1' at the beginning
+        digits.insert(digits.begin(), 1);
+        return digits; // Return the updated vector
+    }
+};
+
+int main() {
+    // Example usage
+    vector<int> digits = {9, 9, 3,9}; // Example input: 999
+    Solution solution;
+    vector<int> result = solution.plusOne(digits);
+    
+    // Output the result
+    cout << "Result: ";
+    for (int digit : result) {
+        cout << digit << " ";
+    }
+
+    output:
+    Result: 9 9 4 0 
+    cout << endl;
+
+    return 0;
+}
